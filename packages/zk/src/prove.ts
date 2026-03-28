@@ -15,7 +15,8 @@ import type { ZKClaimInput, ZKProof } from "./types.js";
  */
 export async function generateProof(input: ZKClaimInput): Promise<ZKProof> {
   // Dynamic import — snarkjs is large and only needed at proof generation time
-  const snarkjs = await import("snarkjs").catch(() => {
+  // @ts-ignore — snarkjs is an optional peer dep, types not required at build time
+    const snarkjs = await import("snarkjs").catch(() => {
     throw new Error(
       "snarkjs not installed. Run: pnpm add snarkjs in @liberproof/zk"
     );
@@ -37,7 +38,8 @@ export async function verifyProof(
   zkProof: ZKProof,
   vkeyPath: string
 ): Promise<boolean> {
-  const snarkjs = await import("snarkjs").catch(() => {
+  // @ts-ignore — snarkjs is an optional peer dep, types not required at build time
+    const snarkjs = await import("snarkjs").catch(() => {
     throw new Error("snarkjs not installed.");
   });
 
