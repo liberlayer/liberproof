@@ -10,7 +10,10 @@ COPY apps/api/package.json ./apps/api/
 RUN pnpm install --no-frozen-lockfile
 COPY packages/ ./packages/
 COPY apps/api/ ./apps/api/
-RUN pnpm -r run build
+RUN pnpm --filter @liberproof/core run build
+RUN pnpm --filter @liberproof/anchors --filter @liberproof/zk run build
+RUN pnpm --filter @liberproof/sdk run build
+RUN pnpm --filter @liberproof/api run build
 
 FROM node:20-alpine AS runner
 WORKDIR /app
