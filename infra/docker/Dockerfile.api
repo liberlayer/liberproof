@@ -1,7 +1,7 @@
 FROM node:20-alpine AS builder
 WORKDIR /app
 RUN corepack enable && corepack prepare pnpm@latest --activate
-COPY pnpm-workspace.yaml package.json pnpm-lock.yaml* ./
+COPY pnpm-workspace.yaml package.json tsconfig.json pnpm-lock.yaml* ./
 COPY packages/core/package.json ./packages/core/
 COPY packages/anchors/package.json ./packages/anchors/
 COPY packages/zk/package.json ./packages/zk/
