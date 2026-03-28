@@ -40,6 +40,7 @@ export class LiberlandAnchorAdapter implements AnchorAdapter {
    */
   async anchor(proofHash: string): Promise<ChainAnchor> {
     // Dynamic import — @polkadot/api is large, only load when needed
+    // @ts-ignore — optional peer dep
     const { ApiPromise, WsProvider } = await import("@polkadot/api").catch(() => {
       throw new Error(
         "@polkadot/api not installed. Run: pnpm add @polkadot/api @polkadot/keyring"
