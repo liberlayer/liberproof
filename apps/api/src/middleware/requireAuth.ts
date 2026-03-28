@@ -1,7 +1,11 @@
 import type { Context, Next } from "hono";
 import { verifyJwt } from "../lib/auth.js";
+import type { Variables } from "../lib/types.js";
 
-export async function requireAuth(c: Context, next: Next): Promise<Response | void> {
+export async function requireAuth(
+  c: Context<{ Variables: Variables }>,
+  next: Next
+): Promise<Response | void> {
   const authHeader = c.req.header("Authorization");
   if (!authHeader?.startsWith("Bearer ")) {
     return c.json({ error: "Unauthorized" }, 401);
