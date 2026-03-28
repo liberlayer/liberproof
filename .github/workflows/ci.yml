@@ -16,7 +16,7 @@ jobs:
         with: { version: 9 }
       - uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
           cache: "pnpm"
       - run: pnpm install --no-frozen-lockfile
       - run: pnpm -r run typecheck
@@ -30,7 +30,7 @@ jobs:
         with: { version: 9 }
       - uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
           cache: "pnpm"
       - run: pnpm install --no-frozen-lockfile
       - run: pnpm --filter @liberproof/core run test -- --reporter=verbose
@@ -45,7 +45,7 @@ jobs:
         with: { version: 9 }
       - uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
           cache: "pnpm"
       - run: pnpm install --no-frozen-lockfile
       - run: pnpm -r run build

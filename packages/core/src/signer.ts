@@ -2,13 +2,8 @@ import { secp256k1 } from "@noble/curves/secp256k1";
 import { ed25519 } from "@noble/curves/ed25519";
 import { bytesToHex, hexToBytes } from "@noble/hashes/utils";
 import { hashBytes } from "./hash.js";
-import type { ProofAlgorithm, SignedProof } from "./types.js";
+import type { SignedProof, SignerConfig } from "./types.js";
 
-export interface SignerConfig {
-  privateKey: string;
-  algorithm: ProofAlgorithm;
-  verificationMethod: string;
-}
 
 /** Sign a payload and return a SignedProof. */
 export function signPayload(

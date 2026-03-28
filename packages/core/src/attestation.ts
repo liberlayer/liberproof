@@ -32,5 +32,5 @@ export function verifyAttestation(
     return { valid: false, reason: "Attestation has expired", verifiedAt };
   }
   const valid = verifySignature(attestation.proof, publicKey);
-  return { valid, reason: valid ? undefined : "Invalid signature", verifiedAt };
+  return valid ? { valid: true, verifiedAt } : { valid: false, reason: "Invalid signature", verifiedAt };
 }

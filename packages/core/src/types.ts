@@ -3,6 +3,12 @@
  * W3C Verifiable Credentials aligned
  */
 
+export interface SignerConfig {
+  privateKey: string;
+  algorithm: ProofAlgorithm;
+  verificationMethod: string;
+}
+
 export type ProofAlgorithm = "Ed25519" | "secp256k1" | "secp256r1";
 
 export interface ProofMetadata {

@@ -23,5 +23,5 @@ export function notarizeDocument(
   const payload = new TextEncoder().encode(
     JSON.stringify({ id, documentHash, mimeType: input.mimeType, timestamp, label: input.label })
   );
-  return { id, documentHash, mimeType: input.mimeType, timestamp, label: input.label, proof: signPayload(payload, signer) };
+  return { id, documentHash, mimeType: input.mimeType, timestamp, ...(input.label !== undefined && { label: input.label }), proof: signPayload(payload, signer) };
 }
