@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/logo.png" alt="LiberProof" width="120" />
+  <img src="docs/logo.svg" alt="LiberProof" width="120" />
 </p>
 
 <h1 align="center">LiberProof</h1>
