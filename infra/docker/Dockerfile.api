@@ -1,6 +1,12 @@
 FROM node:22-alpine AS builder
 WORKDIR /app
-RUN corepack enable && corepack prepare pnpm@latest --activate
+# Toolchain for native modules (better-sqlite3 compiles from source on Alpine/musl —
+# no musl prebuilds — so python3/make/g++ are required at install time).
+RUN apk add --no-cache python3 make g++
+# Pin pnpm: pnpm 11 ignores the onlyBuiltDependencies allowlist (so the better-sqlite3
+# build is skipped and install fails); 10.15.0 honours it. Pinning also keeps the
+# image reproducible vs the moving `@latest`.
+RUN corepack enable && corepack prepare pnpm@10.15.0 --activate
 COPY pnpm-workspace.yaml package.json tsconfig.json pnpm-lock.yaml* ./
 COPY packages/core/package.json ./packages/core/
 COPY packages/anchors/package.json ./packages/anchors/
