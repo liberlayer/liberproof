@@ -21,7 +21,7 @@
     "@liberproof/core": "workspace:*",
     "@liberproof/sdk": "workspace:*",
     "@liberproof/zk": "workspace:*",
-    "@noble/curves": "^1.4.0",
+    "@noble/curves": "^2.2.0",
     "@noble/hashes": "^1.4.0"
   },
   "devDependencies": {
