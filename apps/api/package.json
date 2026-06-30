@@ -14,7 +14,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@hono/node-server": "^1.12.0",
+    "@hono/node-server": "^2.0.6",
     "@liberproof/core": "workspace:*",
     "@liberproof/anchors": "workspace:*",
     "better-sqlite3": "^9.4.3",
